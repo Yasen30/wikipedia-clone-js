@@ -3,8 +3,9 @@ const loadData = async () => {
   const searchInput = document.getElementById("search-input");
   const searchInputValue = searchInput.value;
   //if empty array
-  if ((searchInput.value = "")) {
+  if (searchInput.value == "") {
     alert("please input a value");
+    console.log("done");
   }
   //give value message
   else {
