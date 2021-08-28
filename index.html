@@ -16,8 +16,13 @@
       .hover:hover {
         text-decoration: underline !important;
       }
+      #spiner-section {
+        display: none;
+      }
     </style>
+    <!-- main section -->
     <main>
+      <!-- searrch input section -->
       <section class="my-5 container">
         <form class="col-lg-8 m-auto">
           <div class="input-group mb-3">
@@ -35,7 +40,17 @@
           </div>
         </form>
       </section>
+      <!-- search result -->
       <section id="search-result" class="container"></section>
+      <!-- spiner section -->
+      <section id="spiner-section">
+        <div class="d-flex justify-content-center">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+      </section>
+      <!-- error message section -->
       <section class="text-center">
         <p class="text-danger" id="not-found-message"></p>
       </section>

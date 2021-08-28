@@ -1,14 +1,24 @@
 // load data function
 const loadData = async () => {
+  //set const four items
   const searchInput = document.getElementById("search-input");
+  const spinerSection = document.getElementById("spiner-section");
+  const searchResultSection = document.getElementById("search-result");
+  const notFoundMessage = document.getElementById("not-found-message");
+  //get value
   const searchInputValue = searchInput.value;
+  //clear search section content
+  searchResultSection.textContent = "";
+  //spiner show
+  spinerSection.style.display = "block";
   //if empty array
   if (searchInput.value == "") {
     alert("please input a value");
-    console.log("done");
+    notFoundMessage.innerText = "please input a value";
   }
   //give value message
   else {
+    notFoundMessage.innerText = "";
     //set link api
     const url = `https://en.wikipedia.org/w/api.php?action=query&list=search&prop=info&inprop=url&utf8=&format=json&origin=*&srlimit=20&srsearch=${searchInputValue}`;
     //api call async method
@@ -17,19 +27,18 @@ const loadData = async () => {
     //   displayData Function call
     displayData(data);
   }
-
+  //spiner section hidden
+  spinerSection.style.display = "none";
   //clear input value
   searchInput.value = "";
 };
 
 //display data
 const displayData = (data) => {
-  //set id section and not found message
+  //set const section and not found message
   const searchResultSection = document.getElementById("search-result");
   const notFoundMessage = document.getElementById("not-found-message");
 
-  //clear textcontent
-  searchResultSection.textContent = "";
   //set countreysInfo
   const countreysInfo = data.query.search;
 
